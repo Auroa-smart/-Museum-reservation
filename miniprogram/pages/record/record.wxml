@@ -1,0 +1,23 @@
+<!--pages/record/record.wxml-->
+<van-nav-bar
+  title="预约记录"
+  left-text="返回"
+  left-arrow
+  bind:click-left="onClickLeft"
+  custom-class="bar"
+  title-class="bar_font"
+/>
+  <view wx:for="{{dataList}}" wx:key="index" wx:for-item="record"  class="box">
+    <image src="/images/record_img.jpeg" mode="aspectFill">
+  </image>
+  <view class="shadow">
+      <view class="marginBottom"><van-icon name="calendar-o"  color="#d6b691"/><text>参观日期：<text class="content">{{record.date}}</text></text></view>
+    <view class="marginBottom"><van-icon name="clock-o" color="#d6b691"/><text>参观时间：<text class="content">{{record.time}}</text></text></view>
+    <view class="marginBottom"><van-icon name="user-o" color="#d6b691"/><text>预约人：<text class="content">{{record.visitor}}</text></text></view>
+    <van-divider dashed custom-class="divider" />
+    <view class="btn_group">
+      <button class="btn" bindtap="cancel" data-userid="{{record.id}}" data-user_order_id="{{record._id}}" data-cancel_time="{{record.time}}">取消预约</button>
+    </view>
+    </view>
+  </view>
+
